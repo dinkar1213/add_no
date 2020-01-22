@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            body{
+                background: rgb(255, 193, 193);
+            }
+            #guess{
+                width: 300px;
+                height: 300px;
+                background: rgba(127, 255, 212, 0.527);
+                margin-top:8%;
+                margin-left:35%;
+                padding: 3%;
+                border-radius:10px;
+                box-shadow: 7px 7px 6px;
+            }
+            #button{
+                border-radius: 5px;
+                width: 100px; 
+                height: 40px;
+                background: rgba(14, 108, 185, 0.842);
+                font-weight: bold;
+                font-size: 20px;
+            }
+        
+        </style>
+
+
+    </head>
+    <body>
+        <div id="guess">
+            <b>guess a number between 1-10</b>
+        <input type="text" id="value" name="a"/>
+        <div id='value-0'></div>
+        <div id='value-1'></div>
+        <button id="button">click</button>
+        </div>
+    </body>
+    <script>
+    var rndm,i,gameplaying;
+    gameplaying=true;
+    i=1;
+    rndm=Math.floor(Math.random()*10)+1;
+    //document.querySelector('#value-0').textContent = rndm;
+    
+    document.querySelector('#button').addEventListener('click',function(){
+        var x = document.getElementById('value').value;
+       
+        if(gameplaying){
+            if(x == rndm){
+            alert('your guess is correct');
+            document.querySelector('#value-1').style.display='none';
+        }
+        if(i===11){
+            gameplaying=false;
+            document.querySelector('#value-1').textContent = 'your 10 chances are over';
+        }
+        else{
+            document.querySelector('#value-1').textContent = 'chance'+' '+i;
+            i++;
+        }
+        }
+        
+
+    });   
+    
+    
+    </script>
+</html>
